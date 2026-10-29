@@ -6,6 +6,7 @@ public static class Arrays
     /// integer greater than 0.
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
+    
     public static double[] MultiplesOf(double number, int length)
     {
         // TODO Problem 1 Start
@@ -13,7 +14,18 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        /// Create an array with the specific length
+        /// Loop through each index of the array
+        /// Calculate each multiple and store it at the corresponding index
+        /// Return the array
+
+        double[] numbers = new double[length];
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            numbers[i] = number * (i + 1);
+        }
+        return numbers;
     }
 
     /// <summary>
@@ -29,5 +41,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        /// Create a loop to make the process the specific amoubt of times
+        /// Get the last element from the list
+        /// remove the last element
+        /// insert that at the beginning of the list
+    
+        for (int i = 0; i < amount; i++)
+        {
+            int lidx = data.Count - 1;
+            int lvlue = data[lidx];
+            data.RemoveAt(lidx);
+            data.Insert(0, lvlue);
+        }
+
     }
 }

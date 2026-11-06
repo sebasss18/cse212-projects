@@ -44,8 +44,12 @@ public class TakingTurnsQueue
             {
                 person.Turns -= 1;
                 _people.Enqueue(person);
+                return person;
+            } else if (person.Turns == 1) {                  
+                return person;
             }
 
+            _people.Enqueue(person);
             return person;
         }
     }

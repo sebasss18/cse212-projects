@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+
 public class Translator
 {
     public static void Run()
@@ -9,6 +12,15 @@ public class Translator
         Console.WriteLine(englishToGerman.Translate("Car")); // Auto
         Console.WriteLine(englishToGerman.Translate("Plane")); // Flugzeug
         Console.WriteLine(englishToGerman.Translate("Train")); // ???
+
+        // My little testing
+        var englishToSpanish = new Translator();
+        englishToSpanish.AddWord("Cat", "Gato");
+        englishToSpanish.AddWord("Phone", "Telefono");
+        englishToSpanish.AddWord("Charger", "cargador");
+        Console.WriteLine(englishToSpanish.Translate("Cat"));
+        Console.WriteLine(englishToSpanish.Translate("Phone"));
+        Console.WriteLine(englishToSpanish.Translate("Cable"));
     }
 
     private Dictionary<string, string> _words = new();
@@ -25,6 +37,7 @@ public class Translator
     public void AddWord(string fromWord, string toWord)
     {
         // ADD YOUR CODE HERE
+        _words.Add(fromWord, toWord);
     }
 
     /// <summary>
@@ -35,6 +48,11 @@ public class Translator
     public string Translate(string fromWord)
     {
         // ADD YOUR CODE HERE
-        return "";
+        if (_words.TryGetValue(fromWord, out string translate))
+        {
+            return translate;
+        } else {
+            return "???";
+        }
     }
 }

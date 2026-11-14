@@ -33,6 +33,7 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
+        
     }
 
     /// <summary>
